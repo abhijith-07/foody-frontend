@@ -36,7 +36,15 @@ const Main = styled.div`
 const MainContainer = styled.div`
     display: flex;
     width: 980px;
+    justify-content: space-between;
+    margin-top: 3rem;
 `
 
 const ItemContainer = styled.div`
+    img {
+        width: 8rem;
+        height: 8rem;
+        border-radius: 50%;
+        background-color: var(--primary);
+    }
 `
