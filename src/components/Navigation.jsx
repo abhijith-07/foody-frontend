@@ -3,12 +3,14 @@ import styled from "styled-components"
 export default function Navigation() {
     return(
         <MainNavigation>
-            <h1>F<Red>oo</Red>dy Z<Red>o</Red>ne</h1>
-            <div className="search">
-                <label class="material-symbols-outlined" for="search">
-                    search
-                </label>
-                <input type="text" placeholder="Search for Foodies..." id="search"/>
+            <div className="nav-content">
+                <h1>F<Red>oo</Red>dy Z<Red>o</Red>ne</h1>
+                <div className="search">
+                    <label class="material-symbols-outlined" for="search">
+                        search
+                    </label>
+                    <input type="text" placeholder="Search for Foodies..." id="search"/>
+                </div>
             </div>
         </MainNavigation>
     )
@@ -18,8 +20,15 @@ const MainNavigation = styled.div`
     display: flex;
     height: 5rem;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
     color: var(--white);
+    width: 100%;
+
+    .nav-content {
+        display: flex;
+        justify-content: space-between;
+        width: 980px;
+    }
     
     .search {
         display: flex;
