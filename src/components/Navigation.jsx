@@ -6,7 +6,7 @@ export default function Navigation() {
             <div className="nav-content">
                 <h1>F<Red>oo</Red>dy Z<Red>o</Red>ne</h1>
                 <div className="search">
-                    <label class="material-symbols-outlined" for="search">
+                    <label className="material-symbols-outlined" htmlFor="search">
                         search
                     </label>
                     <input type="text" placeholder="Search for Foodies..." id="search"/>
