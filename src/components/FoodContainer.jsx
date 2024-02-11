@@ -1,32 +1,35 @@
+import { useEffect, useState } from "react"
 import styled from "styled-components"
 
-export default function FoodContainer() {
+export default function FoodContainer({api}) {
+    
+    const [foodData, setFoodData] = useState("")
+    const [isLoading, setIsLoading] = useState(true)
+    const [error, setError] = useState()
+    
+    useEffect(()=>{
+        setIsLoading(true)
+
+        fetch(api).then(
+            serverPromise => {
+                serverPromise.json()
+                .then(data=> setFoodData(data))
+                setIsLoading(false)
+            }
+        ).catch(err=>{
+            setError("Unable to Load Data")
+            console.error(`Error While Loading: ${err}`)
+        })
+    })
+
     return(
         <Main>
             <MainContainer>
                 <ItemContainer>
                     <img src="" alt="" />
-                    <p className="title">s</p>
-                    <p className="description">s</p>
-                    <p className="price">a</p>
-                </ItemContainer>
-                <ItemContainer>
-                    <img src="" alt="" />
-                    <p className="title">s</p>
-                    <p className="description">s</p>
-                    <p className="price">a</p>
-                </ItemContainer>
-                <ItemContainer>
-                    <img src="" alt="" />
-                    <p className="title">s</p>
-                    <p className="description">s</p>
-                    <p className="price">a</p>
-                </ItemContainer>
-                <ItemContainer>
-                    <img src="" alt="" />
-                    <p className="title">s</p>
-                    <p className="description">s</p>
-                    <p className="price">a</p>
+                    <p className="title"></p>
+                    <p className="description"></p>
+                    <p className="price"></p>
                 </ItemContainer>
             </MainContainer>
         </Main>
