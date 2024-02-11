@@ -22,6 +22,12 @@ export default function FoodContainer() {
                     <p className="description">s</p>
                     <p className="price">a</p>
                 </ItemContainer>
+                <ItemContainer>
+                    <img src="" alt="" />
+                    <p className="title">s</p>
+                    <p className="description">s</p>
+                    <p className="price">a</p>
+                </ItemContainer>
             </MainContainer>
         </Main>
     )
@@ -34,17 +40,22 @@ const Main = styled.div`
 `
 
 const MainContainer = styled.div`
-    display: flex;
     width: 980px;
-    justify-content: space-between;
-    margin-top: 3rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 6rem;
+    gap: 6rem;
 `
 
 const ItemContainer = styled.div`
+    background-color: red;
+    width: 10rem;
+    text-align: center;
     img {
         width: 8rem;
         height: 8rem;
         border-radius: 50%;
         background-color: var(--primary);
+        margin-top: -4rem;
     }
 `
