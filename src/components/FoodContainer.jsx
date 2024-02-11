@@ -43,19 +43,31 @@ const MainContainer = styled.div`
     width: 980px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    margin-top: 6rem;
+    margin-top: 5rem;
     gap: 6rem;
 `
 
 const ItemContainer = styled.div`
-    background-color: red;
-    width: 10rem;
+    width: 12.5rem;
+    height: 13rem;
     text-align: center;
+    background-color: var(--dark2);
+    border-radius: 1rem;
+    color: var(--white);
+
     img {
         width: 8rem;
         height: 8rem;
         border-radius: 50%;
         background-color: var(--primary);
-        margin-top: -4rem;
+        margin-top: -3rem;
+    }
+
+    .title {
+        font-weight: 600;
+    }
+
+    .description {
+        color: var(--light)
     }
 `
