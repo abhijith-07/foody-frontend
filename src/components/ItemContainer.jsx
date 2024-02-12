@@ -8,7 +8,7 @@ export default function ItemContainer({foodData, api}) {
                     <img src={`http://localhost:8000${data.image}`} alt="" />
                     <p className="title">{data.name}</p>
                     <p className="description">{data.text}</p>
-                    <p className="price"><span class="material-symbols-outlined">currency_rupee</span>
+                    <p className="price"><span className="material-symbols-outlined">currency_rupee</span>
                     {data.price}</p>
                 </Item>
             ))

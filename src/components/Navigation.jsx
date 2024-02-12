@@ -1,6 +1,11 @@
 import styled from "styled-components"
 
-export default function Navigation() {
+export default function Navigation({setSearchValue}) {
+
+    const searchVal = (e) => {
+        setSearchValue(e.target.value)
+    }
+
     return(
         <MainNavigation>
             <div className="nav-content">
@@ -9,7 +14,7 @@ export default function Navigation() {
                     <label className="material-symbols-outlined" htmlFor="search">
                         search
                     </label>
-                    <input type="text" placeholder="Search for Foodies..." id="search"/>
+                    <input type="text" placeholder="Search for Foodies..." id="search" onChange={searchVal}/>
                 </div>
             </div>
         </MainNavigation>

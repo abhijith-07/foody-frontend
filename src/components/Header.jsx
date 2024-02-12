@@ -1,10 +1,10 @@
 import styled from "styled-components"
 import Navigation from "./Navigation"
 
-export default function Header() {
+export default function Header({setSearchValue}) {
     return(
         <>
-        <Navigation />
+        <Navigation setSearchValue={setSearchValue} />
         <Menu>
             <ul>
                 <li className="active">All</li>
