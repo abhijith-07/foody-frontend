@@ -3,24 +3,38 @@ import styled from "styled-components"
 import ItemContainer from "./ItemContainer"
 
 export default function FoodContainer({api, searchValue}) {
-    
-    const [foodData, setFoodData] = useState()
-    const [filterData, setFilterData] = useState(null)
+    const staticData = [
+        {"id": 1, "name": "Boiled Egg", "price": 10.0, "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.", "image": "/media/images/egg.jpg", "type": "breakfast"}, 
+        {"id": 2, "name": "Ramen", "price": 125.0, "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.", "image": "/media/images/ramen.jpg", "type": "lunch"}, 
+        {"id": 3, "name": "Grilled Chicken", "price": 100.0, "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.", "image": "/media/images/chicken.jpg", "type": "dinner"}, 
+        {"id": 4, "name": "Burger", "price": 40.0, "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.", "image": "/media/images/burger.jpg", "type": "lunch"}, 
+        {"id": 5, "name": "Pancake", "price": 50.0, "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.", "image": "/media/images/pancake.jpg", "type": "dinner"}, 
+        {"id": 6, "name": "Cake", "price": 80.0, "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.", "image": "/media/images/cake.jpg", "type": "breakfast"}
+    ]
+    const [foodData, setFoodData] = useState(staticData)
+    const [filterData, setFilterData] = useState(staticData)
     const [isLoading, setIsLoading] = useState(true)
     const [error, setError] = useState()
-    
-    async function fetchData() {
-        try {
-          const response = await fetch(api);
-          const data = await response.json();
-          setFoodData(data);
-          setFilterData(data);
-        } catch (err) {
-          setError("Unable to Load Data");
-          console.error(`Error While Loading: ${err}`);
-        }
-        setIsLoading(false);
+
+    {/* Static Data */}
+
+    function fetchData() {
+        setIsLoading(false)
     }
+
+    {/* Dynamic Data Fetching */}
+    // async function fetchData() {
+    //     try {
+    //       const response = await fetch(api);
+    //       const data = await response.json();
+    //       setFoodData(data);
+    //       setFilterData(data);
+    //     } catch (err) {
+    //       setError("Unable to Load Data");
+    //       console.error(`Error While Loading: ${err}`);
+    //     }
+    //     setIsLoading(false);
+    // }
 
     useEffect(() => {
         setIsLoading(true);
@@ -28,14 +42,15 @@ export default function FoodContainer({api, searchValue}) {
     }, []);
 
     useEffect(() => {
-        if(searchValue===""){
-            setFilterData(null)
+        if(searchValue==="" || searchValue===undefined){
+            setFilterData(staticData)
+            return
         }
-            
+
         const filter = foodData?.filter((food)=>food.name.toLowerCase().includes(searchValue.toLowerCase()))
         setFilterData(filter)
     }, [searchValue])
-
+    
 
     if (error) return <div>Something Went Wrong...</div>
     if (isLoading) return <div style={{color: "white"}}>
