@@ -22,20 +22,6 @@ export default function FoodContainer({api, searchValue}) {
         setIsLoading(false)
     }
 
-    {/* Dynamic Data Fetching */}
-    // async function fetchData() {
-    //     try {
-    //       const response = await fetch(api);
-    //       const data = await response.json();
-    //       setFoodData(data);
-    //       setFilterData(data);
-    //     } catch (err) {
-    //       setError("Unable to Load Data");
-    //       console.error(`Error While Loading: ${err}`);
-    //     }
-    //     setIsLoading(false);
-    // }
-
     useEffect(() => {
         setIsLoading(true);
         fetchData();
@@ -50,7 +36,7 @@ export default function FoodContainer({api, searchValue}) {
         const filter = foodData?.filter((food)=>food.name.toLowerCase().includes(searchValue.toLowerCase()))
         setFilterData(filter)
     }, [searchValue])
-    
+
 
     if (error) return <div>Something Went Wrong...</div>
     if (isLoading) return <div style={{color: "white"}}>
