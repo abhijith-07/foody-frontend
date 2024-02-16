@@ -4,12 +4,12 @@ import ItemContainer from "./ItemContainer"
 
 export default function FoodContainer({api, searchValue}) {
     const staticData = [
-        {"id": 1, "name": "Boiled Egg", "price": 10.0, "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.", "image": "src/assets/images/egg.jpg", "type": "breakfast"}, 
-        {"id": 2, "name": "Ramen", "price": 125.0, "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.", "image": "src/assets/images/ramen.jpg", "type": "lunch"}, 
-        {"id": 3, "name": "Grilled Chicken", "price": 100.0, "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.", "image": "src/assets/images/chicken.jpg", "type": "dinner"}, 
-        {"id": 4, "name": "Burger", "price": 40.0, "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.", "image": "src/assets/images/burger.jpg", "type": "lunch"}, 
-        {"id": 5, "name": "Pancake", "price": 50.0, "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.", "image": "src/assets/images/pancake.jpg", "type": "dinner"}, 
-        {"id": 6, "name": "Cake", "price": 80.0, "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.", "image": "src/assets/images/cake.jpg", "type": "breakfast"}
+        {"id": 1, "name": "Boiled Egg", "price": 10.0, "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.", "image": "/images/egg.jpg", "type": "breakfast"}, 
+        {"id": 2, "name": "Ramen", "price": 125.0, "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.", "image": "/images/ramen.jpg", "type": "lunch"}, 
+        {"id": 3, "name": "Grilled Chicken", "price": 100.0, "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.", "image": "/images/chicken.jpg", "type": "dinner"}, 
+        {"id": 4, "name": "Burger", "price": 40.0, "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.", "image": "/images/burger.jpg", "type": "lunch"}, 
+        {"id": 5, "name": "Pancake", "price": 50.0, "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.", "image": "/images/pancake.jpg", "type": "dinner"}, 
+        {"id": 6, "name": "Cake", "price": 80.0, "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.", "image": "/images/cake.jpg", "type": "breakfast"}
     ]
     const [foodData, setFoodData] = useState(staticData)
     const [filterData, setFilterData] = useState(staticData)
