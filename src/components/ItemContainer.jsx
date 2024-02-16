@@ -5,7 +5,8 @@ export default function ItemContainer({foodData, api}) {
             <>
             {foodData.map((data, index) => (
                 <Item key={index}>
-                    <img src={`http://localhost:8000${data.image}`} alt="" />
+                    {/* <img src={`http://localhost:8000${data.image}`} alt="" /> */}
+                    <img src={`${data.image}`} alt="" />
                     <p className="title">{data.name}</p>
                     <p className="description">{data.text}</p>
                     <p className="price"><span className="material-symbols-outlined">currency_rupee</span>
