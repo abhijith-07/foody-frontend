@@ -7,11 +7,12 @@ function App() {
   const {api} = BASE_URL 
 
   const [searchValue, setSearchValue] = useState()
+  const [selectedBtn, setSelectedBtn] = useState("all")
 
   return (
     <>
-      <Header setSearchValue={setSearchValue} />
-      <FoodContainer api={api} searchValue={searchValue} />
+      <Header setSearchValue={setSearchValue} setSelectedBtn={setSelectedBtn} selectedBtn={selectedBtn}/>
+      <FoodContainer api={api} searchValue={searchValue} selectedBtn={selectedBtn} />
     </>
   )
 }

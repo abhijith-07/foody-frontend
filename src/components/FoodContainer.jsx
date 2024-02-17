@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import styled from "styled-components"
 import ItemContainer from "./ItemContainer"
 
-export default function FoodContainer({api, searchValue}) {
+export default function FoodContainer({api, searchValue, selectedBtn}) {
     const staticData = [
         {"id": 1, "name": "Boiled Egg", "price": 10.0, "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.", "image": "/images/egg.jpg", "type": "breakfast"}, 
         {"id": 2, "name": "Ramen", "price": 125.0, "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.", "image": "/images/ramen.jpg", "type": "lunch"}, 
@@ -37,6 +37,18 @@ export default function FoodContainer({api, searchValue}) {
         setFilterData(filter)
     }, [searchValue])
 
+    function switchMeals(type) {
+        if (type === "all") {
+            setFilterData(staticData) 
+            return
+        }
+        const filter = foodData?.filter((food) => food.type.toLowerCase().includes(type.toLowerCase()))
+        setFilterData(filter)
+    }
+
+    useEffect(()=>{
+        switchMeals(selectedBtn)
+    }, [selectedBtn])
 
     if (error) return <div>Something Went Wrong...</div>
     if (isLoading) return <div style={{color: "white"}}>

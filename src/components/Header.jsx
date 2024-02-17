@@ -1,16 +1,18 @@
 import styled from "styled-components"
 import Navigation from "./Navigation"
 
-export default function Header({setSearchValue}) {
+export default function Header({setSearchValue, setSelectedBtn, selectedBtn}) {
+    const categories = ['All', 'Breakfast', 'Lunch', 'Dinner']
+
     return(
         <>
         <Navigation setSearchValue={setSearchValue} />
         <Menu>
             <ul>
-                <li className="active">All</li>
-                <li>Breakfast</li>
-                <li>Lunch</li>
-                <li>Dinner</li>
+                {categories.map((category)=>{
+                    return (<li className={selectedBtn ===  (category.toLowerCase()) ? 'active': '' } onClick={() => setSelectedBtn(category.toLowerCase())}>{category}</li>)
+                
+                })}
             </ul>
         </Menu>
         </>
